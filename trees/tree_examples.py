@@ -1,6 +1,6 @@
 #Python Tree Examples based on http://www.openbookproject.net/thinkcs/python/english2e/ch21.html
 import sys
-
+import time
 calls = 0
 
 class Tree:
@@ -19,6 +19,15 @@ def total(tree):
 		return 0
 	return total(tree.left) + total(tree.right) + tree.cargo
 
+def tree_traverse(root):
+    #time.sleep(.75)
+    #print(root)
+    if(root == None):
+        return
+    if(tree_traverse(root.left) == None and tree_traverse(root.right) == None):
+        #Work here
+        return
+
 def print_tree(tree):
 	if tree == None:
 		return
@@ -27,17 +36,26 @@ def print_tree(tree):
 	print_tree(tree.right)
 
 def main():
-	rec_var = 0
-	#Tree(cargo, left, right) all generic.
-	tree = Tree(3,Tree(9),Tree(6))
-	tree.left.left = Tree(1)
-	tree.right.right = Tree(12)
 	
-	#print out tree values recursively
-	print_tree(tree)
+        #Tree(cargo, left, right) all generic.
+	
+        #Build a Tree
+        root = Tree(6,Tree(2),Tree(9))
+	
+        root.left.left = Tree(4)
+	root.left.right = Tree(5)
 
-	print('total = ', total(tree))
-	print('No. of calls =',calls)
+        root.right.left = Tree(7)
+        root.right.right = Tree(1)
+
+        #Traverse Tree
+        tree_traverse(root)
+
+	#print out tree values recursively
+        #print_tree(root)
+
+#	print('total = ', total(root))
+#	print('No. of calls =',calls)
 
 if __name__ == "__main__":
 	main();	
