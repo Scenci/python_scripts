@@ -1,2 +1,1 @@
-A place for my personal python exploration, scripts and projects
-\nCreated 03/24/2018
+A place for my personal python exploration, scripts and projects <br /> Created 03/24/2018
