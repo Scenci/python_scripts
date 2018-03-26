@@ -26,6 +26,7 @@ def tree_traverse(root):
         return
     if(tree_traverse(root.left) == None and tree_traverse(root.right) == None):
         #Work here
+        print('reached')
         return
 
 def print_tree(tree):
@@ -40,22 +41,16 @@ def main():
         #Tree(cargo, left, right) all generic.
 	
         #Build a Tree
-        root = Tree(6,Tree(2),Tree(9))
-	
-        root.left.left = Tree(4)
-        root.left.right = Tree(5)
-
-        root.right.left = Tree(7)
-        root.right.right = Tree(1)
-
+        root = Tree(6,Tree(4),Tree(5))
+        
         #Traverse Tree
         tree_traverse(root)
 
         #print out tree values recursively
         #print_tree(root)
 
-#	print('total = ', total(root))
-#	print('No. of calls =',calls)
+        #print('total = ', total(root))
+        #print('No. of calls =',calls)
 
 if __name__ == "__main__":
 	main();	
